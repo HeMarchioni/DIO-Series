@@ -12,12 +12,12 @@ namespace DIO_Series.Classes
 
         // Atributos
         private Genero Genero { get; set; }
-        private string Titulo { get; set; }
+        public string Titulo { get; private set; }
         private string Descricao { get; set; }
         private int Ano { get; set; }
-        private bool Excluido { get; set; }
+        public bool Excluido { get; private set; }
 
-        public Serie(int id ,Genero genero, string titulo, string descricao, int ano, bool excluido)
+        public Serie(int id ,Genero genero, string titulo, string descricao, int ano)
         {
 
             this.Id = id;
@@ -25,7 +25,7 @@ namespace DIO_Series.Classes
             this.Titulo = titulo;
             this.Descricao = descricao;
             this.Ano = ano;
-            this.Excluido = excluido;
+            this.Excluido = false;
         }
 
 
@@ -40,16 +40,17 @@ namespace DIO_Series.Classes
             retorno += "Excluido: " + this.Excluido;
             return retorno;
         }
-
-
-        public string retornaTitulo()
-        {
-            return this.Titulo;
-        }
-
+    
         public int retornaId()
         {
             return this.Id;
+        }
+
+   
+    
+        public void Excluir()
+        {
+            this.Excluido = true;
         }
 
 
